@@ -21,4 +21,14 @@ class Collaborators
         return Collaborator::whereIn('id', (array)$ids)
             ->get();
     }
+
+    /**
+     * @param $username
+     * @return \App\Models\Collaborator|null
+     */
+    public function findByGithubUsername($username)
+    {
+        return Collaborator::where('github_username', $username)
+            ->first();
+    }
 }

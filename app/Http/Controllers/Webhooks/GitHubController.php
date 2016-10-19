@@ -38,7 +38,7 @@ class GitHubController extends Controller
             $pr = $body->pull_request;
 
             if (empty($pr->assignees)) {
-                $pr = $this->assigner->assign($pr);
+                $pr = $this->assigner->assign($body->repository, $pr);
             }
             
             $this->notifier->notify($pr);

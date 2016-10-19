@@ -21,7 +21,11 @@ class Notifier
         $slack = new \Maknz\Slack\Client(env('SLACK_WEBHOOK_URL'), $payload);
 
         $messageObj = $slack->createMessage();
-        $messageObj->send($this->generateMessage($pullRequest));
+        $message = $this->generateMessage($pullRequest);
+
+        if ($message) {
+            $messageObj->send();
+        }
     }
 
     /**
@@ -30,6 +34,11 @@ class Notifier
      */
     protected function generateMessage($pullRequest)
     {
-        return '!';
+        $url = $pullRequest->html_url;
+        $assigneeGithub = $pullRequest->assignee->login;
+
+        $collaborator = app()->make('App\\Repositories\\Collaborators')->findByGithubUsername($assigneeGithub);
+
+        return $collaborator? "Hey @{$collaborator->slack_username}, you have a new code review: {$url}" : null;
     }
 }
