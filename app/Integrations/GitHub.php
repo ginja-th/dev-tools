@@ -93,10 +93,11 @@ class GitHub
         $http = new Client();
         $response = $http->post($url, [
             'json' => [
-                'assignees' => [$username],
+                'assignees' => ["{$username}"],
             ],
             'headers' => [
                 'Authorization' => 'token ' . Settings::get('github_oauth_token'),
+                'Content-Type' => 'application/json',
             ],
         ]);
         return !!$response;

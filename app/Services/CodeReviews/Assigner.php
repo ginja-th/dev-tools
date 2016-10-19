@@ -18,7 +18,7 @@ class Assigner
     public function assign($repository, $pullRequest)
     {
         // e.g: ginja-th/dev-tools
-        $assignee = $this->findAssignee($repository['full_name'], $pullRequest['user']['login']);
+        $assignee = $this->pickAssignee($repository['full_name'], $pullRequest['user']['login']);
 
         $assigneeObj = [
             'login' => $assignee->github_username,
@@ -38,7 +38,7 @@ class Assigner
      * @param $repo
      * @return mixed
      */
-    public function findAssignee($repo, $omit = null)
+    public function pickAssignee($repo, $omit = null)
     {
         /** @var \App\Repositories\Collaborators $collaborators */
         $collaborators = app()->make('App\Repositories\Collaborators');
