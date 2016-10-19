@@ -17,7 +17,7 @@ class Assigner
         // e.g: ginja-th/dev-tools
         $assignee = $this->findAssignee($repository['full_name']);
 
-        $assigneeObj = (object)[
+        $assigneeObj = [
             'login' => $assignee['github_username'],
         ];
 
