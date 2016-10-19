@@ -70,14 +70,8 @@ class Assigner
     {
         $url = $pullRequest['issue_url'] . '/assignees';
 
-        $payload = ['assignees' => [$githubUsername]];
-
-        $http = new Client();
-        $response = $http->post($url, [
-            'body' => $payload,
-            'headers' => [
-                'Authorization' => 'token ' . env('GITHUB_ACCESS_TOKEN'),
-            ]
-        ]);
+        /** @var \App\Integrations\GitHub $github */
+        $github = app()->make('App\Integrations\GitHub');
+        $github->assignUserToIssue($url, $githubUsername);
     }
 }

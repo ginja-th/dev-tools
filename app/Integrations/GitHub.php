@@ -82,4 +82,23 @@ class GitHub
 
         return $responseBody ?: false;
     }
+
+    /**
+     * @param $url
+     * @param $username
+     * @return bool
+     */
+    public function assignUserToIssue($url, $username)
+    {
+        $http = new Client();
+        $response = $http->post($url, [
+            'form_params' => [
+                'assignees' => [$username],
+            ],
+            'headers' => [
+                'Authorization' => 'token ' . Settings::get('github_oauth_token'),
+            ],
+        ]);
+        return !!$response;
+    }
 }
