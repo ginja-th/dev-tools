@@ -17,3 +17,6 @@ $app->get('/', function () use ($app) {
 
 $app->get('webhooks/github/pull-request', 'Webhooks\\GitHubController@getPullRequest');
 $app->post('webhooks/github/pull-request', 'Webhooks\\GitHubController@postPullRequest');
+
+$app->get('tokens/github', 'Tokens\\GitHubController@index');
+$app->get('tokens/exchange', 'Tokens\\GitHubController@exchange');
