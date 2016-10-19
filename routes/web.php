@@ -15,5 +15,5 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('webhooks/github/pull-request', 'App\\Http\\Controllers\\Webhooks\\GitHubController@getPullRequest');
-$app->post('webhooks/github/pull-request', 'App\\Http\\Controllers\\Webhooks\\GitHubController@postPullRequest');
+$app->get('webhooks/github/pull-request', 'Webhooks\\GitHubController@getPullRequest');
+$app->post('webhooks/github/pull-request', 'Webhooks\\GitHubController@postPullRequest');
