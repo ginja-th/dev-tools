@@ -2,6 +2,8 @@
 
 namespace App\Services\CodeReviews;
 
+use Carbon\Carbon;
+
 /**
  * Class Assigner
  * @package App\Services\CodeReviews\Assigner
@@ -18,11 +20,15 @@ class Assigner
         $assignee = $this->findAssignee($repository['full_name']);
 
         $assigneeObj = [
-            'login' => $assignee['github_username'],
+            'login' => $assignee->github_username,
         ];
 
         $pullRequest['assignee'] = $assigneeObj;
         $pullRequest['assignees'] = [$assigneeObj];
+
+        // @todo: make sure the user is assigned IN GITHUB to the pull request
+
+        $assignee->update(['last_code_review_at' => Carbon::now()]);
 
         return $pullRequest;
     }

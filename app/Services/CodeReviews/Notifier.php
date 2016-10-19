@@ -4,7 +4,7 @@ namespace App\Services\CodeReviews;
 
 class Notifier
 {
-    protected $emoji = ':exclamation:';
+    protected $emoji = ':robot_face:';
 
     protected $username = 'Code Review Bot';
 
@@ -16,6 +16,7 @@ class Notifier
         $payload = [
             'username' => $this->username,
             'icon' => $this->emoji,
+            'link_names' => 1,
         ];
 
         $slack = new \Maknz\Slack\Client(env('SLACK_WEBHOOK_URL'), $payload);
