@@ -21,7 +21,7 @@ class GitHubController extends Controller
         $redirectUri = url('tokens/github/exchange');
         $scope = 'repo';
         $state = Settings::get('github_nonce');
-        $allowSignup = false;
+        $allowSignup = 'false';
 
         // assemble the url
         $url = "https://github.com/login/oauth/authorize?";

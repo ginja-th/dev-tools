@@ -19,4 +19,4 @@ $app->get('webhooks/github/pull-request', 'Webhooks\\GitHubController@getPullReq
 $app->post('webhooks/github/pull-request', 'Webhooks\\GitHubController@postPullRequest');
 
 $app->get('tokens/github', 'Tokens\\GitHubController@index');
-$app->get('tokens/exchange', 'Tokens\\GitHubController@exchange');
+$app->get('tokens/github/exchange', 'Tokens\\GitHubController@exchange');
