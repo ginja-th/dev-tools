@@ -12,7 +12,11 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return response()->json(['data' => [
+        'message' => 'Ok',
+        'rev' => exec('git log --pretty=format:\'%h\' -n 1'),
+        'lumen' => $app->version(),
+    ]]);
 });
 
 $app->get('webhooks/github/pull-request', 'Webhooks\\GitHubController@getPullRequest');
