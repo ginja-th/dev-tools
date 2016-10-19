@@ -33,12 +33,12 @@ class GitHubController extends Controller
 
         $body = $request->json()->all();
 
-        if (!empty($body->action) && $body->action === 'opened') {
+        if (!empty($body['action']) && $body['action'] === 'opened') {
             
-            $pr = $body->pull_request;
+            $pr = $body['pull_request'];
 
-            if (empty($pr->assignees)) {
-                $pr = $this->assigner->assign($body->repository, $pr);
+            if (empty($pr['assignees'])) {
+                $pr = $this->assigner->assign($body['repository'], $pr);
             }
             
             $this->notifier->notify($pr);

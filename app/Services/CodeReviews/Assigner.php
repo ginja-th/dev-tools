@@ -15,14 +15,14 @@ class Assigner
     public function assign($repository, $pullRequest)
     {
         // e.g: ginja-th/dev-tools
-        $assignee = $this->findAssignee($repository->full_name);
+        $assignee = $this->findAssignee($repository['full_name']);
 
         $assigneeObj = (object)[
-            'login' => $assignee->github_username,
+            'login' => $assignee['github_username'],
         ];
 
-        $pullRequest->assignee = $assigneeObj;
-        $pullRequest->assignees = [$assigneeObj];
+        $pullRequest['assignee'] = $assigneeObj;
+        $pullRequest['assignees'] = [$assigneeObj];
 
         return $pullRequest;
     }

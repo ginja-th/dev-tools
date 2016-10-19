@@ -34,8 +34,8 @@ class Notifier
      */
     protected function generateMessage($pullRequest)
     {
-        $url = $pullRequest->html_url;
-        $assigneeGithub = $pullRequest->assignee->login;
+        $url = $pullRequest['html_url'];
+        $assigneeGithub = $pullRequest['assignee']['login'];
 
         $collaborator = app()->make('App\\Repositories\\Collaborators')->findByGithubUsername($assigneeGithub);
 
