@@ -92,7 +92,7 @@ class GitHub
     {
         $http = new Client();
         $response = $http->post($url, [
-            'form_params' => [
+            'json' => [
                 'assignees' => [$username],
             ],
             'headers' => [
