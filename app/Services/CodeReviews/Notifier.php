@@ -24,7 +24,7 @@ class Notifier
         $message = $this->generateMessage($pullRequest);
 
         if ($message) {
-            $messageObj->send();
+            $messageObj->send($message);
         }
     }
 
@@ -39,6 +39,6 @@ class Notifier
 
         $collaborator = app()->make('App\\Repositories\\Collaborators')->findByGithubUsername($assigneeGithub);
 
-        return $collaborator? "Hey @{$collaborator->slack_username}, you have a new code review: {$url}" : null;
+        return !empty($collaborator) ? "Hey @{$collaborator->slack_username}, you have a new code review: {$url}" : null;
     }
 }
