@@ -47,7 +47,7 @@ class GitHub
         $http = new Client();
 
         $response = $http->post($endpoint, [
-            'body' => [
+            'form_params' => [
                 'client_id' => env('GITHUB_CLIENT_ID'),
                 'client_secret' => env('GITHUB_CLIENT_SECRET'),
                 'code' => $code,
