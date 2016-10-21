@@ -53,7 +53,7 @@ class Assigner
         }
 
         // avoid someone getting two code reviews in a row
-        $list = $list->sortBy('last_code_review_at', SORT_REGULAR, 'DESC');
+        $list = $list->sortBy('last_code_review_at');
 
         if (!empty($list->last()->last_code_review_at)) {
             $list->pop();
