@@ -1,18 +1,15 @@
-# Ginja dev team tools
+# Foodkit dev tools
 
-A repository housing miscellaneous tools for the Ginja development team.
+A repository housing miscellaneous tools for the Foodkit development team.
 
 ## Setup
 
 ```
-git clone git@github.com:ginja-th/dev-tools.git
-composer install
-cp .env.example .env
-vi .env
-# configure environment...
-php artisan migrate
+git clone git@github.com:foodkit/dev-tools.git
+cd dev-tools
+npm start
 ```
 
-## Environment
+## References
 
-Please see [.env.example](.env.example) for instructions.
+* https://github.com/excellalabs/minimal-mean

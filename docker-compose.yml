@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  # see https://github.com/excellalabs/minimal-mean
+  frontend:
+    build: frontend
+    ports:
+      - '8080:3000'
+
+  # see https://github.com/excellalabs/minimal-mean
+  backend:
+    build: backend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+    links:
+      - database
+
+  # https://hub.docker.com/_/postgres/
+  database:
+    image: postgres
+    env_file: .env

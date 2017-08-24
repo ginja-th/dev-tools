@@ -1,0 +1,33 @@
+{
+  "name": "dev-tools",
+  "version": "1.0.0",
+  "description": "Tools to assist in the building of software.",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "node bin/preinstall",
+    "start": "docker-compose up",
+    "stop": "docker-compose down",
+    "rimraf": "rimraf node_modules && rimraf backend/node_modules && rimraf frontend/node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foodkit/dev-tools.git"
+  },
+  "keywords": [
+    "foodkit",
+    "devtools",
+    "angular",
+    "typescript",
+    "ng2",
+    "node"
+  ],
+  "author": "Corey Mcmahon (corey@ginja.co.th)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foodkit/dev-tools/issues"
+  },
+  "homepage": "https://github.com/foodkit/dev-tools#readme",
+  "devDependencies": {
+    "rimraf": "^2.6.1"
+  }
+}
