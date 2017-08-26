@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-  # see https://github.com/excellalabs/minimal-mean
   frontend:
     build: frontend
     volumes:
@@ -9,7 +8,6 @@ services:
     ports:
       - '4200:4200'
 
-  # see https://github.com/excellalabs/minimal-mean
   backend:
     build: backend
     volumes:

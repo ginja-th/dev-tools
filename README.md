@@ -12,4 +12,4 @@ npm start
 
 ## References
 
-* https://github.com/excellalabs/minimal-mean
+* Based on: https://github.com/excellalabs/minimal-mean
