@@ -23,3 +23,5 @@ services:
   database:
     image: postgres
     env_file: .env
+    ports:
+      - '54322:5432'

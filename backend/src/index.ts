@@ -1,5 +1,9 @@
+import * as dotenv from 'dotenv'
 import * as config from './config'
 import * as server from './server'
+
+// Load environment file
+dotenv.config()
 
 async function start() {
   try {
