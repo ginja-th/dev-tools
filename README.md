@@ -10,6 +10,14 @@ cd dev-tools
 npm start
 ```
 
+## Todos
+
+- [ ] Backend livereload is problematic.
+- [ ] Linting of TypeScript code on frontend and backend
+- [ ] Tests for backend (API endpoints)
+- [ ] Tests for frontend
+
 ## References
 
-* Based on: https://github.com/excellalabs/minimal-mean
+* https://github.com/excellalabs/minimal-mean
+* https://github.com/coreymcmahon/pean-starter

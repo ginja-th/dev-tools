@@ -5,9 +5,12 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as cors from 'cors'
-import * as webhooksRouter from './routes/webhooks'
 import * as api from './helpers/api'
 import {Request, Response} from 'express'
+
+// Routers
+import * as webhooksRouter from './routes/webhooks'
+import * as apiRouter from './routes/api'
 
 var app = express()
 
@@ -23,6 +26,7 @@ app.use(logger('dev'))
  * Routes
  */
 app.use('/webhooks', webhooksRouter)
+app.use('/api', apiRouter)
 
 // 404 handler
 app.get('*', (req: Request, res: Response) => {

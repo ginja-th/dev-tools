@@ -22,6 +22,6 @@ services:
   # https://hub.docker.com/_/postgres/
   database:
     image: postgres
-    env_file: .env
+    env_file: ./backend/.env
     ports:
       - '54322:5432'

@@ -9,7 +9,7 @@ import { RequestHandler, Request, Response, NextFunction } from "express";
 let getPullRequest: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
   return res.json({
     status: "Okie dokie"
-  })
+  });
 }
 
 /**
