@@ -7,6 +7,9 @@ export interface IGithubLinks {
 };
 
 /**
+ * GET /api/github/links
+ * 
+ * Returns the redirect link for Github authentication.
  * 
  * @param req 
  * @param res 
@@ -22,6 +25,9 @@ export var getLinks: RequestHandler = (req: Request, res: Response, next: NextFu
 }
 
 /**
+ * GET /api/github/exchange?code=<code>
+ * 
+ * Exchanges a Github oauth code for an access token.
  * 
  * @param req 
  * @param res 
