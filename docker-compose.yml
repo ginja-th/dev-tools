@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  frontend:
+    build: frontend
+    volumes:
+      - './frontend:/usr/src/frontend'
+    ports:
+      - '4200:4200'
+
+  backend:
+    build: backend
+    volumes:
+      - ./backend:/usr/src/backend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+    links:
+      - database
+
+  # https://hub.docker.com/_/postgres/
+  database:
+    image: postgres
+    env_file: ./backend/.env
+    ports:
+      - '54322:5432'
